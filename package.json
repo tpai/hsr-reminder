@@ -1,0 +1,24 @@
+{
+  "name": "hsr-reminder",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "NODE_ENV=development node index.js",
+    "clean": "rm -rf node_modules && npm i",
+    "build": "better-npm-run build"
+  },
+  "betterScripts": {
+    "build": {
+      "command": "npm run clean && zip -r ${PWD##*/}_$(date +%s).zip . -x *.git* -x *.zip -x .env",
+      "env": {
+        "NODE_ENV": "production"
+      }
+    }
+  },
+  "dependencies": {
+    "better-npm-run": "^0.1.1",
+    "dotenv": "^8.0.0",
+    "node-fetch": "^2.6.0"
+  }
+}

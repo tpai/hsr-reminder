@@ -1,5 +1,6 @@
 const fetch = require('node-fetch');
 const { URLSearchParams } = require('url');
+const { createFormattedStrings } = require('./utils');
 
 if (process.env.NODE_ENV === 'development') {
   require('dotenv').config();
@@ -54,11 +55,7 @@ const handler = async (event) => {
       },
     } = json;
     if (dataStatus === '000' && trains.length !== 0) {
-      const params = trains.slice(0, 3)
-        .reduce((result, val, key) => ({
-          ...result,
-          [`value${key+1}`]: val.deptDateTime,
-        }), {});
+      const params = createFormattedStrings(trains.slice(0, 3));
       // post webhook
       const output = await fetch(WEBHOOK, {
         method: 'POST',

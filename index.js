@@ -44,6 +44,9 @@ const handler = async (event) => {
     // query trains
     const json = await fetch(ENDPOINT, {
       method: 'POST',
+      headers: {
+        'User-Agent': 'PostmanRuntime/7.15.2'
+      },
       body: params,
     })
       .then(res => res.json());

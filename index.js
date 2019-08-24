@@ -27,19 +27,19 @@ const handler = async (event) => {
     } = process.env;
 
     const params = new URLSearchParams();
-    params.append('from',             FROM);
-    params.append('to',               TO);
-    params.append('date',             DATE);
-    params.append('timetable',        TIMETABLE);
-    params.append('ticketcount',      TICKETCOUNT);
-    params.append('carriagecategory', CARRIAGECATEGORY);
-    params.append('onlyshowdiscount', ONLYSHOWDISCOUNT);
-    params.append('collegestudents',  COLLEGESTUDENTS);
-    params.append('deviceid',         DEVICEID);
-    params.append('deviceidhash',     DEVICEIDHASH);
-    params.append('devicecategory',   DEVICECATEGORY);
-    params.append('appversion',       APPVERSION);
-    params.append('parameterversion', PARAMETERVERSION);
+    params.set('from',             FROM);
+    params.set('to',               TO);
+    params.set('date',             DATE);
+    params.set('timetable',        TIMETABLE);
+    params.set('ticketcount',      TICKETCOUNT);
+    params.set('carriagecategory', CARRIAGECATEGORY);
+    params.set('onlyshowdiscount', ONLYSHOWDISCOUNT);
+    params.set('collegestudents',  COLLEGESTUDENTS);
+    params.set('deviceid',         DEVICEID);
+    params.set('deviceidhash',     DEVICEIDHASH);
+    params.set('devicecategory',   DEVICECATEGORY);
+    params.set('appversion',       APPVERSION);
+    params.set('parameterversion', PARAMETERVERSION);
 
     // query trains
     const json = await fetch(ENDPOINT, {
